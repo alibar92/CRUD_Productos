@@ -1,0 +1,59 @@
+﻿<Window x:Class="CRUDJR.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CRUDJR"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Mantenimiento CRUD" Height="450" Width="400">
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/CRUDJR;component/Estilos/Estilos.xaml">
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height ="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" x:Name="labelID" Content="ID" Style="{StaticResource Espaciado}"/>
+        <Label Grid.Row="1" Grid.Column="0" x:Name="labelProducto" Content="Producto" Style="{StaticResource Espaciado}"/>
+        <Label Grid.Row="2" Grid.Column="0" x:Name="labelPrecio" Content="Precio" Style="{StaticResource Espaciado}"/>
+
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="TextoID" Style="{StaticResource Espaciado}"/>
+        <Button Grid.Row="0" Grid.Column="2" Name="BtnBuscar" Content="Buscar Producto" Style="{StaticResource Espaciado}" Click="BtnBuscar_Click"/>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="TextoProducto" Style="{StaticResource Espaciado}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="TextoPrecio" Style="{StaticResource Espaciado}"/>
+
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" x:Name="AccionesStackPanel">
+            <Button x:Name="BtnAnyadir" Style="{StaticResource BotonesStackPanel}" Click="BtnAgregar_Click">Añadir</Button>
+            <Button x:Name="BtnEditar" Style="{StaticResource BotonesStackPanel}" Click="BtnEditar_Click">Editar</Button>
+            <Button x:Name="BtnEliminar" Style="{StaticResource BotonesStackPanel}" Click="BtnEliminar_Click">Eliminar</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" x:Name="ConfirmStackPanel">
+            <Button x:Name="BtnConfirmar" Style="{StaticResource BotonesStackPanel}" Click="BtnConfirmar_Click">Confirmar</Button>
+            <Button x:Name="BtnCancelar" Style="{StaticResource BotonesStackPanel}" Click="BtnCancelar_Click">Cancelar</Button>
+        </StackPanel>
+
+        <DataGrid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"  Name="Listado"/>
+    </Grid>
+
+</Window>
